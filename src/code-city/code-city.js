@@ -95,7 +95,13 @@ void main() { \
             var h = 1000;
             var gw = Math.max(0, (d.dx - 2 * houseMargin)*w) / 500;
             var gh = Math.max(0, (d.dy - 2 * houseMargin)*h) / 500;
-            var baseHeight = Math.sqrt((d.height-minimumHeight)/(maximumHeight-minimumHeight));
+              
+            var minimum_baseHeight = 0.1;
+            var baseHeight = minimum_baseHeight;
+			
+            if(maximumHeight > minimumHeight)
+                baseHeight = Math.sqrt((d.height-minimumHeight)/(maximumHeight-minimumHeight));
+			
             var gd = unitHeight * (d.children ? 0.05 : baseHeight)*130.0;
 
             var gx = ((d.x + d.dx/2)*w ) / 500 - 1;
