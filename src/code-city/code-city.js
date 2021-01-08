@@ -100,7 +100,7 @@ void main() { \
             var baseHeight = minimum_baseHeight;
 			
             if(maximumHeight > minimumHeight)
-                baseHeight = Math.sqrt((d.height-minimumHeight)/(maximumHeight-minimumHeight));
+                baseHeight = Math.max(minimum_baseHeight, Math.sqrt((d.height-minimumHeight)/(maximumHeight-minimumHeight)));
 			
             var gd = unitHeight * (d.children ? 0.05 : baseHeight)*130.0;
 
